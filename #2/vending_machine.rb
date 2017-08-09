@@ -1,17 +1,12 @@
 class VendingMachine
-  @@permitted_money = [10, 50, 100, 500, 1000]
-
-  attr_accessor :items, :inserted_money
+  attr_accessor :items, :permitted_money, :inserted_money
 
   def initialize()
     @items = Hash.new{|h, k| h[k] = []}
+    @permitted_money = [10, 50, 100, 500, 1000]
     @inserted_money = 0
 
     5.times{self.add(Drink.new("コーラ", 120))}
-  end
-
-  def permitted_money
-    return @@permitted_money
   end
 
   def add(item)
@@ -19,16 +14,11 @@ class VendingMachine
   end
 
   def insert_money(money)
-    if @@permitted_money.include?(money)
+    if @permitted_money.include?(money)
       @inserted_money += money
     else
-      puts "Returned: #{money}"
+      puts "#{money} returned."
     end
-  end
-
-  def return_change(money)
-    puts "Returned: #{@inserted_money}"
-    money = 0
   end
 
   def purchase(name)
@@ -46,7 +36,6 @@ class VendingMachine
     tmp = []
     @items.each do |name, items|
       if @inserted_money >= items[0].price
-        #puts "#{name}: #{items[0].price}"
         tmp.push(items[0].to_s)
       end
     end
