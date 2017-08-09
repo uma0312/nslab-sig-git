@@ -30,7 +30,7 @@ class VendingMachine
     if @inserted_money >= price
       @inserted_money -= price
       @sales += price
-      @items[name].delete_at(0) # Delete a purchased item
+      @items[name].shift # Delete a purchased item
       self.return_change
     else
       puts "#{name} is not purchasable!"
@@ -39,7 +39,7 @@ class VendingMachine
   end
 
   def purchasable_items
-    tmp = []
+    tmp = {}
     @items.each do |name, items|
       if @inserted_money >= items[0].price
         tmp.push(items[0].to_s)
