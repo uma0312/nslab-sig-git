@@ -22,12 +22,8 @@ class VendingMachine
     if @@permitted_money.include?(money)
       @inserted_money += money
     else
-      puts "Returned: #{money}"
+      puts "#{money} returned."
     end
-  end
-
-  def return_change(money)
-    puts "Returned: #{@inserted_money}"
   end
 
   def purchase(name)
