@@ -42,7 +42,7 @@ class VendingMachine
     tmp = {}
     @items.each do |name, items|
       if @inserted_money >= items[0].price
-        tmp.push(items[0].to_s)
+        tmp[items[0].name] = items[0].price
       end
     end
     return tmp
