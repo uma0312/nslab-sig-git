@@ -1,3 +1,5 @@
+require "./drink"
+
 class VendingMachine
   attr_accessor :items, :permitted_money
   attr_reader :sales, :inserted_money

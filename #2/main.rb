@@ -1,4 +1,3 @@
-require "./drink"
 require "./vending_machine"
 
 vending_machine = VendingMachine.new
