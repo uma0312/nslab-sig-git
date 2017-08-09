@@ -1,6 +1,6 @@
 class VendingMachine
-  attr_accessor :items, :permitted_money, :inserted_money
-  attr_reader :sales
+  attr_accessor :items, :permitted_money
+  attr_reader :sales, :inserted_money
 
   def initialize()
     @items = Hash.new{|h, k| h[k] = []}
