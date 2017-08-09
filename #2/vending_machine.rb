@@ -27,8 +27,8 @@ class VendingMachine
     price = @items[name][0].price
     if @inserted_money >= price
       @inserted_money -= price
-      @items[name].delete_at(0) # Delete a purchased item
       @sales += price
+      @items[name].delete_at(0) # Delete a purchased item
       self.return_change
     else
       puts "#{name} is not purchasable!"
